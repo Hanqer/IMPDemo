@@ -2,8 +2,16 @@
 #define LOGIN_H
 
 #include <QDialog>
-#include <impdemo.h>
+
 #include <QSql>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QSqlError>
+
+#include <QMessageBox>
+#include <QDebug>
+#include "impdemo.h"
+#include "registerui.h"
 namespace Ui {
 class LogIn;
 }
@@ -18,13 +26,14 @@ public:
 
 private:
     Ui::LogIn *ui;
-
+    static bool createConnection();
 private slots:
     void loginSlot();
     void registerSlot();
 
 private:
     IMPDemo imp;
+    RegisterUI reg;
 };
 
 #endif // LOGIN_H

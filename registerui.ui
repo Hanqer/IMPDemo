@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>LogIn</class>
- <widget class="QDialog" name="LogIn">
+ <class>RegisterUI</class>
+ <widget class="QDialog" name="RegisterUI">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -32,16 +32,19 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="label1">
          <property name="text">
-          <string>用户名：</string>
+          <string>    用户名:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLineEdit" name="usrNameLineEdit">
          <property name="placeholderText">
-          <string>请输入用户名</string>
+          <string>用户名长度8-15位</string>
          </property>
         </widget>
        </item>
@@ -50,19 +53,46 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
-        <widget class="QLabel" name="label_2">
+        <widget class="QLabel" name="label2">
          <property name="text">
-          <string>密    码：</string>
+          <string>        密码:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="usrPasswordLineEdit">
+        <widget class="QLineEdit" name="usrPassWordLineEdit">
          <property name="echoMode">
           <enum>QLineEdit::Password</enum>
          </property>
          <property name="placeholderText">
-          <string>请输入密码</string>
+          <string>密码长度8-15位</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="label3">
+         <property name="text">
+          <string>确认密码:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="usrPassWordAgainLineEdit">
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
+         </property>
+         <property name="placeholderText">
+          <string>请重复输入密码</string>
          </property>
         </widget>
        </item>
@@ -82,22 +112,11 @@
       </spacer>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <widget class="QPushButton" name="logInButton">
-         <property name="text">
-          <string>登录</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="registerButton">
-         <property name="text">
-          <string>注册</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <widget class="QPushButton" name="registerButton">
+       <property name="text">
+        <string>注册</string>
+       </property>
+      </widget>
      </item>
      <item>
       <spacer name="verticalSpacer_3">
