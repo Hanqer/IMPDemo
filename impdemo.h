@@ -4,7 +4,11 @@
 #include <QMainWindow>
 #include <QPixmap>
 #include <QDebug>
-
+#include <QFile>
+#include <QFileDialog>
+#include <QAction>
+#include <QMenuBar>
+#include <QStatusBar>
 namespace Ui {
 class IMPDemo;
 }
@@ -19,6 +23,12 @@ public:
 
 private:
     Ui::IMPDemo *ui;
+
+    QMenu* menu[10];
+      QAction* act[10];
+      QMenuBar* menuBar ;
+      QStatusBar* status ;
 };
+
 
 #endif // IMPDEMO_H

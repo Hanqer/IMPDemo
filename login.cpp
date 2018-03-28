@@ -27,7 +27,6 @@ LogIn::LogIn(QWidget *parent) :
     }
 
 
-
 }
 
 LogIn::~LogIn()
