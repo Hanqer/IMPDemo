@@ -1,11 +1,11 @@
-#include "impdemo.h"
+#include "login.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    IMPDemo w;
-    w.show();
+    LogIn login;
+    login.show();
 
     return a.exec();
 }

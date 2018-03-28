@@ -2,6 +2,8 @@
 #define IMPDEMO_H
 
 #include <QMainWindow>
+#include <QPixmap>
+#include <QDebug>
 
 namespace Ui {
 class IMPDemo;
