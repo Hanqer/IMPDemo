@@ -28,6 +28,7 @@ private:
 
 private slots:
     void registerSlot();
+
 };
 
 #endif // REGISTERUI_H

@@ -2,49 +2,60 @@
 #include "ui_impdemo.h"
 
 IMPDemo::IMPDemo(QWidget *parent) :
-    QMainWindow(parent),
+    QWidget(parent),
     ui(new Ui::IMPDemo)
 {
     ui->setupUi(this);
-//    QString fileName = QFileDialog::getOpenFileName(
-//                   this, tr("open image file"),
-//                   "./", tr("Image files(*.bmp *.jpg *.pbm *.pgm *.png *.ppm *.xbm *.xpm);;All files (*.*)"));
-    // test code
-    this->resize(400,300);
-        this->centralWidget();
 
-        status = new QStatusBar(this);
+    this->setFixedSize(1000,600);
+    status = new QStatusBar(this);
+    ui->functionGroup->setFixedSize(100,578);
+    ui->menuGroup->setFixedSize(768,100);
+    ui->stay->setFixedSize(100,578);
 
-        menu[0] = new QMenu("文件");
-        menu[0]->addAction("编辑");
-        menu[0]->addAction("查看");
-        menu[0]->addAction("工具");
-
-        act[0] = new QAction("新建",this);
-        act[0]->setShortcut(Qt::CTRL | Qt::Key_A );
-        act[0]->setStatusTip("这是一个新建菜单");
-
-        act[1] = new QAction("打开",this);
-        act[1]->setCheckable(true);
-
-        menu[1] = new QMenu("保存");
-        menu[1]->addAction(act[0]);
-        menu[1]->addAction(act[1]);
-
-        menu[2] = new QMenu("打印");
-        menu[2]->addAction("打印设置");
-        menu[2]->addMenu(menu[1]);
-
-        menuBar = new QMenuBar(this);
-        menuBar->addMenu(menu[0]);
-        menuBar->addMenu(menu[2]);
-        menuBar->setGeometry(0,0,this->width(),30);
+    QAction *openFileAction = new QAction("打开",this);
+    openFileAction->setShortcut(Qt::CTRL | Qt::Key_O);
+    menu[0] = new QMenu("文件");
+    menu[0]->addAction(openFileAction);
 
 
-        menuBar->show();
+    menuBar = new QMenuBar(this);
+    menuBar->addMenu(menu[0]);
+    menuBar->setGeometry(0,0,this->width(),30);
+
+
+    QObject::connect(openFileAction,SIGNAL(triggered(bool)),this,SLOT(openFileActionSlot()));
+//    QObject::connect(menuBar,SIGNAL(triggered(QAction*)),this,SLOT(trigerMenu(QAction*)));
+
 }
 
 IMPDemo::~IMPDemo()
 {
     delete ui;
+}
+
+//void IMPDemo::trigerMenu(QAction* act)
+//{
+//    if(act->text() == "打开")
+//    {
+
+//    }
+
+//    else {
+//        qDebug()<<"error";
+//    }
+
+
+//}
+
+
+void IMPDemo::openFileActionSlot()
+{
+    QString fileName = QFileDialog::getOpenFileName(
+                this,tr("open image file"),
+                "./",tr("Image files(*.bmp,*.jpg,*.png,*.pbm,*.pgm,*.jpeg);;All files(*.*)"));
+
+    image.load(fileName);
+    ui->label->setPixmap(QPixmap::fromImage(image));
+    ui->label->setFixedSize(image.size());
 }

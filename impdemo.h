@@ -1,19 +1,23 @@
 #ifndef IMPDEMO_H
 #define IMPDEMO_H
 
-#include <QMainWindow>
-#include <QPixmap>
-#include <QDebug>
-#include <QFile>
-#include <QFileDialog>
-#include <QAction>
+#include <QWidget>
+#include <QMenu>
 #include <QMenuBar>
 #include <QStatusBar>
+#include <QDebug>
+#include <QFileDialog>
+#include <QFile>
+#include <QAction>
+#include <QLabel>
+#include <QPixmap>
+#include <QImage>
+
 namespace Ui {
 class IMPDemo;
 }
 
-class IMPDemo : public QMainWindow
+class IMPDemo : public QWidget
 {
     Q_OBJECT
 
@@ -23,12 +27,16 @@ public:
 
 private:
     Ui::IMPDemo *ui;
-
     QMenu* menu[10];
-      QAction* act[10];
-      QMenuBar* menuBar ;
-      QStatusBar* status ;
-};
+    //暂时不采用action指针
+//    QAction* act[10];
+    QMenuBar* menuBar ;
+    QStatusBar* status ;
 
+    QImage image;
+public slots:
+//    void trigerMenu(QAction* act);
+     void openFileActionSlot();
+};
 
 #endif // IMPDEMO_H

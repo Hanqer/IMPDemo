@@ -31,7 +31,8 @@ private slots:
     void loginSlot();
     void registerSlot();
 
-private:
+//private:
+public:
     IMPDemo imp;
     RegisterUI reg;
 };

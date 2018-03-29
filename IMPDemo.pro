@@ -26,17 +26,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        impdemo.cpp \
     login.cpp \
-    registerui.cpp
+    registerui.cpp \
+    impdemo.cpp
 
 HEADERS += \
-        impdemo.h \
     global.h \
     login.h \
-    registerui.h
+    registerui.h \
+    impdemo.h
 
 FORMS += \
         impdemo.ui \
     login.ui \
-    registerui.ui
+    registerui.ui \
+    impdemo.ui

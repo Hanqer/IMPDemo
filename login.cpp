@@ -26,6 +26,8 @@ LogIn::LogIn(QWidget *parent) :
         qDebug()<<query.lastError();
     }
 
+    imp.show();
+    this->close();
 
 }
 
